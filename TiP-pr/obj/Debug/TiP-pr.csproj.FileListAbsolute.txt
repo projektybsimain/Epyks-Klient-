@@ -1,0 +1,25 @@
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\bin\Debug\TiP-pr.exe.config
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\bin\Debug\TiP-pr.exe
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\bin\Debug\TiP-pr.pdb
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Properties.Resources.resources
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP-pr.csproj.GenerateResource.Cache
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP-pr.exe
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP-pr.pdb
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP-pr.csprojResolveAssemblyReference.cache
+c:\users\grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Epyks.resources
+C:\Users\Grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Rejestracja.resources
+C:\Users\Grzesiek\documents\visual studio 2012\Projects\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Zalogowany.resources
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\bin\Debug\TiP-pr.exe.config
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP-pr.exe
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP-pr.pdb
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\bin\Debug\TiP-pr.exe
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\bin\Debug\TiP-pr.pdb
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP-pr.csprojResolveAssemblyReference.cache
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Epyks.resources
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Rejestracja.resources
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Properties.Resources.resources
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP_pr.Zalogowany.resources
+C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP-pr.csproj.GenerateResource.Cache
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\bin\Debug\TiP-pr.exe.config
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.exe
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.pdb
