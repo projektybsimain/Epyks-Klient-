@@ -23,3 +23,11 @@ C:\Users\Grzesiek\Desktop\TiP-pr\TiP-pr\obj\Debug\TiP-pr.csproj.GenerateResource
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\bin\Debug\TiP-pr.exe.config
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.exe
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.pdb
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\bin\Debug\TiP-pr.exe
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\bin\Debug\TiP-pr.pdb
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.csprojResolveAssemblyReference.cache
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Epyks.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Rejestracja.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Properties.Resources.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Zalogowany.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.csproj.GenerateResource.Cache

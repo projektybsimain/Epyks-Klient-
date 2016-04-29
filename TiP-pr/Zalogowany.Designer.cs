@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -51,6 +53,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.listView1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
@@ -65,7 +69,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(16, 191);
+            this.listView1.Location = new System.Drawing.Point(16, 158);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(141, 174);
             this.listView1.TabIndex = 23;
@@ -78,7 +82,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Chocolate;
-            this.button3.Location = new System.Drawing.Point(79, 138);
+            this.button3.Location = new System.Drawing.Point(122, 60);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(57, 22);
             this.button3.TabIndex = 22;
@@ -92,7 +96,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Chocolate;
-            this.button1.Location = new System.Drawing.Point(16, 138);
+            this.button1.Location = new System.Drawing.Point(122, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 22);
             this.button1.TabIndex = 20;
@@ -126,7 +130,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 168);
+            this.label1.Location = new System.Drawing.Point(12, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 20);
             this.label1.TabIndex = 2;
@@ -203,6 +207,34 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.Chocolate;
+            this.button7.Location = new System.Drawing.Point(16, 338);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(100, 21);
+            this.button7.TabIndex = 26;
+            this.button7.Text = "Add friend";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.Chocolate;
+            this.button5.Location = new System.Drawing.Point(16, 365);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 21);
+            this.button5.TabIndex = 27;
+            this.button5.Text = "Remove friend";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // Zalogowany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,5 +271,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
     }
 }
