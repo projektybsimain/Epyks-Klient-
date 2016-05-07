@@ -10,24 +10,56 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace TiP_pr
 {
     public partial class Rejestracja : Form
     {
+
+        int serverPort = 9000;
+
         public Rejestracja()
         {
             InitializeComponent();
         }
 
+        static string sha256(string password)
+        {
+            SHA256Managed crypt = new SHA256Managed();
+            string hash = String.Empty;
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
+            foreach (byte theByte in crypto)
+            {
+                hash += theByte.ToString("x2");
+            }
+            return hash;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(sha256("haslo"));
             if (textBox3.Text == "" || textBox2.Text == "" || textBox1.Text == "" || textBox4.Text == "" || textBox5.Text == "")
             {
                 textBox3.Clear();
                 textBox2.Clear();
                 textBox1.Clear();
                 label5.Text = "Error: Complete all fields!";
+                return;
+            }
+            if (textBox1.Text.Length <=5)
+            {
+                label5.Text = "Error: Password too short!";
+                return;
+            }
+            if (textBox1.Text.Length >= 25)
+            {
+                label5.Text = "Error: Password too long!";
+                return;
+            }
+            if (textBox3.Text.Length >= 25)
+            {
+                label5.Text = "Error: Login too long!";
                 return;
             }
             if (textBox2.Text != textBox1.Text)
@@ -37,12 +69,15 @@ namespace TiP_pr
             }
             try
             {
-                Users user_registion = new Users(2, textBox3.Text, textBox2.Text, textBox4.Text, textBox5.Text);
+                TcpClient client = new TcpClient();
+                IPEndPoint IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
+                client.Connect(IP_End);
+                Users user_registion = new Users(2, textBox3.Text, textBox2.Text, textBox4.Text, textBox5.Text, client);
                 string temp = user_registion.ReceiveMessage();
                 if (temp == "AUTH;SUCCESS;")
                 {
                     this.Visible = false;
-                    Zalogowany f = new Zalogowany();
+                    Zalogowany f = new Zalogowany(client);
                     f.ShowDialog();
                     this.Close();
                 }
@@ -52,9 +87,10 @@ namespace TiP_pr
                     return;
                 }
             }
-            catch (Exception)
+            catch (Exception x)
             {
                 MessageBox.Show("Problem z rejestracją!");
+                throw x;
                 return;
             }
         }

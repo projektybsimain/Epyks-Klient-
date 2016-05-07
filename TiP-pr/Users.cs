@@ -11,89 +11,94 @@ using System.Text.RegularExpressions;
 
 namespace TiP_pr
 {
-    class Users
+    public class Users
     {
-        public Command Command { get; private set; }
-        public string[] parameters;
+        //public string[] parameters;
         TcpClient client;
         int serverPort = 9000;
         IPEndPoint IP_End;
         NetworkStream stream;
+        public bool check = false;
 
         private string login;
         private string password;
         private string name;
         private string surname;
+        private string communicat;
 
-
-        public Users(int kom_inf, string login, string password, string name, string surname)
+        public Users(TcpClient client)
         {
-            Command = new Command(String.Empty);
-            client = new TcpClient();
-            IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
+            this.client = client;
+        }
+
+        public Users(int kom_inf, string login, string password, string name, string surname, TcpClient client)
+        {
+            this.client = client;
             this.login = login;
             this.password = password;
             this.name = name;
             this.surname = surname;
             connect(kom_inf);
-            stream = client.GetStream();
         }
 
-        public Users(int kom_inf, string login, string password)
+        public Users(int kom_inf, string login, string password, TcpClient client)
         {
-            Command = new Command(String.Empty);
-            client = new TcpClient();
-            IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
+            this.client = client;
             this.login = login;
             this.password = password;
             connect(kom_inf);
-            stream = client.GetStream();
         }
-    
+
+        public Users(int kom_inf, string communicat, TcpClient client)
+        {
+            this.client = client;
+            this.communicat = communicat;
+            connect(kom_inf);
+        }
+
         public void connect(int kom_inf)
         {
             try
             {
-                client.Connect(IP_End);
                 if (kom_inf == 1)
                 {
-                    Login();
+                    String temp = "LOGIN;" + login + ";" + password + ";" + 2000;
+                    SendMessage(temp);
                 }
                 else if (kom_inf == 2)
                 {
-                    Register();
-                }                  
+                    String temp = "REGISTER;" + login + ";" + password + ";" + name + " " + surname + ";" + 2000;
+                    SendMessage(temp);
+                }
+                else if (kom_inf == 3)
+                 {
+                    MessageBox.Show(communicat);                         
+                     SendMessage(communicat);
+                 }
             }
             catch (Exception x)
             {
                 MessageBox.Show("Problem z połączeniem do serwera (class Usres)");
+                //throw x;
                 return;
             }
         }
 
-        public void Register()
+        public void SendMessage(String temp)
         {
             NetworkStream stream = client.GetStream();
-            byte[] message = Encoding.UTF8.GetBytes("REGISTER;" + login + ";" + password + ";" + name + " " + surname + ";" + 2000);
-            stream.Write(message, 0, message.Length);
-        }
-
-        public void Login()
-        {
-            NetworkStream stream = client.GetStream();
-            byte[] message = Encoding.UTF8.GetBytes("LOGIN;" + login + ";" + password + ";" + 2000);
+            byte[] message = Encoding.UTF8.GetBytes(temp);
             stream.Write(message, 0, message.Length);
         }
 
         public string ReceiveMessage()
         {
-            NetworkStream stream = client.GetStream();
+            NetworkStream str = client.GetStream();
             byte[] inStream = new byte[255];
-            stream.Read(inStream, 0, 255);
+            str.Read(inStream, 0, 255);
             string returndata = Encoding.UTF8.GetString(inStream);
             MessageBox.Show(returndata);
             return returndata.Substring(0, returndata.IndexOf('\0'));
-        }
-
+        }       
     }
 }

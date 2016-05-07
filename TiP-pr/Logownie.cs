@@ -11,13 +11,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace TiP_pr
 {
     public partial class Epyks : Form
     {
-
-        public NetworkStream STR;
+        int serverPort = 9000;
 
         public Epyks()
         {
@@ -42,12 +42,15 @@ namespace TiP_pr
 
             try
             {
-                Users user_login = new Users(1, textBox2.Text, textBox3.Text);
+                TcpClient client = new TcpClient();
+                IPEndPoint IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
+                client.Connect(IP_End);
+                Users user_login = new Users(1, textBox2.Text, textBox3.Text, client);
                 string temp = user_login.ReceiveMessage();
                 if ( temp == "AUTH;SUCCESS;")
                 {
                     this.Visible = false;
-                    Zalogowany f = new Zalogowany();
+                    Zalogowany f = new Zalogowany(client);
                     f.ShowDialog();
                     this.Close();
                 }
@@ -57,9 +60,10 @@ namespace TiP_pr
                     return;
                 }
             }
-            catch (Exception)
+            catch (Exception x)
             {
                 MessageBox.Show("Problem z logowaniem! (class Login)");
+                //throw x;
                 return;
             }
         }

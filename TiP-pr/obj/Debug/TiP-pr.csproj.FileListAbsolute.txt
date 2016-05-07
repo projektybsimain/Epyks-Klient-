@@ -31,3 +31,6 @@ F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Rejestracja.resour
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Properties.Resources.resources
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Zalogowany.resources
 F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP-pr.csproj.GenerateResource.Cache
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.InvitationsPanel.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Profile.resources
+F:\Studia\Semestr 6\Git\Epyks-Klient-\TiP-pr\obj\Debug\TiP_pr.Invitation.resources
