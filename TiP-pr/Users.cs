@@ -72,7 +72,7 @@ namespace TiP_pr
                 }
                 else if (kom_inf == 3)
                  {
-                    MessageBox.Show(communicat);                         
+                    //MessageBox.Show(communicat);                         
                      SendMessage(communicat);
                  }
             }
@@ -97,7 +97,7 @@ namespace TiP_pr
             byte[] inStream = new byte[255];
             str.Read(inStream, 0, 255);
             string returndata = Encoding.UTF8.GetString(inStream);
-            MessageBox.Show(returndata);
+            //MessageBox.Show(returndata);
             return returndata.Substring(0, returndata.IndexOf('\0'));
         }       
     }

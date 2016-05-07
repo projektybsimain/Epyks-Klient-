@@ -36,9 +36,6 @@ namespace TiP_pr
             interface_label();
         }
 
-
-
-
         private void inicjalizacja()
         {
             try
@@ -58,7 +55,7 @@ namespace TiP_pr
                 invite_contacts = new List<string>();
                 for (int i = 1; i < invitations_table.Length; i += i + 2)
                 {
-                    MessageBox.Show(invitations_table[i]);
+                    //MessageBox.Show(invitations_table[i]);
                     invite_contacts.Add(invitations_table[i]);
                 }
                 
@@ -75,7 +72,7 @@ namespace TiP_pr
             contacts_table = Regex.Split(contacts, ";");
             for (int i = 1; i < contacts_table.Length; i=+i+3)
             {
-                MessageBox.Show(contacts_table[i]);
+                //MessageBox.Show(contacts_table[i]);
                 listBox1.Items.Add(contacts_table[i]);
             }
 
