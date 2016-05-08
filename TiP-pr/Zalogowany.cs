@@ -124,7 +124,21 @@ namespace TiP_pr
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string curItem = listBox1.SelectedItem.ToString();
+                if (curItem != null)
+                {
+                    Users rej_inv = new Users(client);
+                    rej_inv.SendMessage("REMOVE;" + curItem);
+                    listBox1.Items.Remove(curItem);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select invite!");
+                return;
+            }
         }
 
         private void button6_Click_1(object sender, EventArgs e)
