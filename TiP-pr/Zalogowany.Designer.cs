@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zalogowany));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -46,7 +47,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -55,6 +57,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.button10);
+            this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
@@ -71,6 +75,16 @@
             this.panel1.Size = new System.Drawing.Size(198, 412);
             this.panel1.TabIndex = 0;
             // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(16, 158);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(163, 148);
+            this.listBox1.TabIndex = 31;
+            // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.White;
@@ -78,7 +92,7 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.ForeColor = System.Drawing.Color.Chocolate;
-            this.button8.Location = new System.Drawing.Point(16, 337);
+            this.button8.Location = new System.Drawing.Point(16, 312);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(86, 21);
             this.button8.TabIndex = 30;
@@ -108,9 +122,9 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.Chocolate;
-            this.button6.Location = new System.Drawing.Point(113, 338);
+            this.button6.Location = new System.Drawing.Point(103, 312);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(66, 48);
+            this.button6.Size = new System.Drawing.Size(86, 21);
             this.button6.TabIndex = 28;
             this.button6.Text = "Invitations";
             this.button6.UseVisualStyleBackColor = false;
@@ -123,7 +137,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.Chocolate;
-            this.button5.Location = new System.Drawing.Point(16, 365);
+            this.button5.Location = new System.Drawing.Point(16, 366);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 21);
             this.button5.TabIndex = 27;
@@ -263,13 +277,35 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // listBox1
+            // button9
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(16, 158);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(163, 173);
-            this.listBox1.TabIndex = 31;
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.Chocolate;
+            this.button9.Location = new System.Drawing.Point(16, 339);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(86, 21);
+            this.button9.TabIndex = 32;
+            this.button9.Text = "Block friend";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.Chocolate;
+            this.button10.Location = new System.Drawing.Point(103, 339);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(86, 21);
+            this.button10.TabIndex = 33;
+            this.button10.Text = "Unlock friend";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Zalogowany
             // 
@@ -311,5 +347,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
     }
 }

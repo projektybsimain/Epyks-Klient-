@@ -26,11 +26,13 @@ namespace TiP_pr
         private string invitations;
         private string[] invitations_table;
         private TcpClient client;
-        private List<string> invite_contacts; 
+        private List<string> invite_contacts;
+        private String login;
 
-        public Zalogowany(TcpClient client)
+        public Zalogowany(TcpClient client, String login)
         {
             InitializeComponent();
+            this.login = login;
             this.client = client;
             inicjalizacja();
             interface_label();
@@ -112,7 +114,7 @@ namespace TiP_pr
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            Profile pro = new Profile(client);
+            Profile pro = new Profile(client, login);
             pro.ShowDialog();
         }
 
@@ -152,6 +154,44 @@ namespace TiP_pr
                 accept_inv.check = false;
                 listBox1.Items.Clear();
                 contacts_list();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string curItem = listBox1.SelectedItem.ToString();
+                if (curItem != null)
+                {
+                    Users rej_inv = new Users(client);
+                    rej_inv.SendMessage("BLOCK;" + curItem);
+                    listBox1.Items.Remove(curItem);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a friend first!");
+                return;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string curItem = listBox1.SelectedItem.ToString();
+                if (curItem != null)
+                {
+                    Users rej_inv = new Users(client);
+                    rej_inv.SendMessage("UNLOCK;" + curItem);
+                    listBox1.Items.Remove(curItem);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a friend first!");
+                return;
             }
         }
     }

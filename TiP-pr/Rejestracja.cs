@@ -77,7 +77,7 @@ namespace TiP_pr
                 if (temp == "AUTH;SUCCESS;")
                 {
                     this.Visible = false;
-                    Zalogowany f = new Zalogowany(client);
+                    Zalogowany f = new Zalogowany(client, textBox3.Text);
                     f.ShowDialog();
                     this.Close();
                 }
