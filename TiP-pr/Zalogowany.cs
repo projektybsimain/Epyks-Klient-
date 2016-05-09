@@ -27,6 +27,7 @@ namespace TiP_pr
         private string[] invitations_table;
         private TcpClient client;
         private List<string> invite_contacts;
+        private List<string> invite_message;
         private String login;
 
         public Zalogowany(TcpClient client, String login)
@@ -36,6 +37,7 @@ namespace TiP_pr
             this.client = client;
             inicjalizacja();
             interface_label();
+            inform();
         }
 
         private void inicjalizacja()
@@ -46,7 +48,6 @@ namespace TiP_pr
                 contacts = user_contacts.ReceiveMessage();
                 contacts_list();
 
-
                 Users user_name = new Users(3, "GET_NAME", client);
                 name = user_name.ReceiveMessage();
                 name_table = Regex.Split(name, ";");
@@ -55,17 +56,36 @@ namespace TiP_pr
                 invitations = user_invitations.ReceiveMessage();
                 invitations_table = Regex.Split(invitations, ";");
                 invite_contacts = new List<string>();
+                invite_message = new List<string>();
                 for (int i = 1; i < invitations_table.Length; i += i + 2)
                 {
                     //MessageBox.Show(invitations_table[i]);
                     invite_contacts.Add(invitations_table[i]);
                 }
-                
+                for (int i = 3; i < invitations_table.Length; i += i + 2)
+                {
+                    //MessageBox.Show(invitations_table[i]);
+                    invite_message.Add(invitations_table[i]);
+                }
+
             }
             catch (Exception)
             {
                 MessageBox.Show("Something goes wrong! (Class Zalogowany)");
                 return;
+            }
+        }
+
+        private void inform()
+        {
+            if (invite_contacts != null)
+            {
+                richTextBox1.Text = "You have new invitations:\n";
+                for (int i = 0; i < invite_contacts.Count; i++)
+                {
+                    richTextBox1.Text += "Name: " + invite_contacts[0] + "  Message: "+ invite_message[0];
+                }
+
             }
         }
 
