@@ -31,7 +31,7 @@ namespace TiP_pr
             {
                 welcome = "Hello!";
             }
-            us.SendMessage("INVITE;"+login+";"+welcome);
+            us.SendMessage("INVITE;"+login+";"+welcome+ "!$");
             MessageBox.Show("You invite new friend!");
             this.Close();
         }

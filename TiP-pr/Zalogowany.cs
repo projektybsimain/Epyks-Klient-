@@ -44,30 +44,31 @@ namespace TiP_pr
         {
             try
             {             
-                Users user_contacts = new Users(3, "CONTACTS", client); //- DODAĆ DODAWANIE DO LISTY I OTRZYMYWANIE WIADOMOŚCI
+                Users user_contacts = new Users(3, "CONTACTS!$", client); 
                 contacts = user_contacts.ReceiveMessage();
+                contacts = contacts.Remove(contacts.Length - 2);
                 contacts_list();
-
-                Users user_name = new Users(3, "GET_NAME", client);
-                name = user_name.ReceiveMessage();
-                name_table = Regex.Split(name, ";");
-
-                Users user_invitations = new Users(3, "INVITATIONS", client);
+                
+                get_name();
+                
+                Users user_invitations = new Users(3, "INVITATIONS!$", client);
                 invitations = user_invitations.ReceiveMessage();
-                invitations_table = Regex.Split(invitations, ";");
+                invitations = invitations.Remove(invitations.Length - 2);
+                string [] inv_temp = Regex.Split(invitations, ";");
+                invitations_table = Regex.Split(inv_temp[1], "%1");
                 invite_contacts = new List<string>();
                 invite_message = new List<string>();
-                for (int i = 1; i < invitations_table.Length; i += i + 2)
+                for (int i = 0; i < invitations_table.Length; i += i + 3)
                 {
-                    //MessageBox.Show(invitations_table[i]);
+                    MessageBox.Show(invitations_table[i]);
                     invite_contacts.Add(invitations_table[i]);
                 }
-                for (int i = 3; i < invitations_table.Length; i += i + 2)
+                for (int i = 2; i < invitations_table.Length; i += i + 2)
                 {
-                    //MessageBox.Show(invitations_table[i]);
+                    MessageBox.Show(invitations_table[i]);
                     invite_message.Add(invitations_table[i]);
                 }
-
+                
             }
             catch (Exception)
             {
@@ -76,28 +77,35 @@ namespace TiP_pr
             }
         }
 
-        private void inform()
+        public void get_name()
         {
-            if (invite_contacts != null)
-            {
-                richTextBox1.Text = "You have new invitations:\n";
-                for (int i = 0; i < invite_contacts.Count; i++)
-                {
-                    richTextBox1.Text += "Name: " + invite_contacts[0] + "  Message: "+ invite_message[0];
-                }
-
-            }
+            Users user_name = new Users(3, "GET_NAME!$", client);
+            name = user_name.ReceiveMessage();
+            name_table = Regex.Split(name, ";");
         }
 
         private void contacts_list()
         {
-            contacts_table = Regex.Split(contacts, ";");
-            for (int i = 1; i < contacts_table.Length; i=+i+3)
+
+            string [] temp = Regex.Split(contacts, ";");
+            contacts_table = Regex.Split(temp[1], "%1");
+            for (int i = 0; i < contacts_table.Length; i = +i + 3)
             {
-                //MessageBox.Show(contacts_table[i]);
+                MessageBox.Show(contacts_table[i]);
                 listBox1.Items.Add(contacts_table[i]);
             }
+        }
 
+        private void inform()
+        {
+            if (invite_message != null)
+            {
+                richTextBox1.Text = "You have new invitations:\n";
+                for (int i = 0; i < invite_message.Count; i++)
+                {
+                    richTextBox1.Text += "Name: " + invite_contacts[i] + "  Message: "+ invite_message[i]+"\n";
+                }
+            }
         }
 
         private void interface_label()
@@ -152,7 +160,7 @@ namespace TiP_pr
                 if (curItem != null)
                 {
                     Users rej_inv = new Users(client);
-                    rej_inv.SendMessage("REMOVE;" + curItem);
+                    rej_inv.SendMessage("REMOVE;" + curItem+"!$");
                     listBox1.Items.Remove(curItem);
                 }
             }
@@ -185,8 +193,8 @@ namespace TiP_pr
                 if (curItem != null)
                 {
                     Users rej_inv = new Users(client);
-                    rej_inv.SendMessage("BLOCK;" + curItem);
-                    listBox1.Items.Remove(curItem);
+                    rej_inv.SendMessage("BLOCK;" + curItem+ "!$");
+                    //listBox1.Items.Remove(curItem);
                 }
             }
             catch (Exception)
@@ -204,8 +212,8 @@ namespace TiP_pr
                 if (curItem != null)
                 {
                     Users rej_inv = new Users(client);
-                    rej_inv.SendMessage("UNLOCK;" + curItem);
-                    listBox1.Items.Remove(curItem);
+                    rej_inv.SendMessage("UNLOCK;" + curItem+ "!$");
+                    //listBox1.Items.Remove(curItem);
                 }
             }
             catch (Exception)

@@ -25,26 +25,29 @@ namespace TiP_pr
         private string name;
         private string surname;
         private string communicat;
+        private int free;
 
         public Users(TcpClient client)
         {
             this.client = client;
         }
 
-        public Users(int kom_inf, string login, string password, string name, string surname, TcpClient client)
+        public Users(int kom_inf, string login, string password, string name, string surname, TcpClient client, int free)
         {
             this.client = client;
             this.login = login;
+            this.free = free;
             this.password = password;
             this.name = name;
             this.surname = surname;
             connect(kom_inf);
         }
 
-        public Users(int kom_inf, string login, string password, TcpClient client)
+        public Users(int kom_inf, string login, string password, TcpClient client, int free)
         {
             this.client = client;
             this.login = login;
+            this.free = free;
             this.password = password;
             connect(kom_inf);
         }
@@ -62,12 +65,12 @@ namespace TiP_pr
             {
                 if (kom_inf == 1)
                 {
-                    String temp = "LOGIN;" + login + ";" + password + ";" + 2000;
+                    String temp = "LOGIN;" + login + ";" + password + ";" + 2000+"!$";
                     SendMessage(temp);
                 }
                 else if (kom_inf == 2)
                 {
-                    String temp = "REGISTER;" + login + ";" + password + ";" + name + " " + surname + ";" + 2000;
+                    String temp = "REGISTER;" + login + ";" + password + ";" + name + " " + surname + ";" + 2000+"!$";
                     SendMessage(temp);
                 }
                 else if (kom_inf == 3)
@@ -86,6 +89,7 @@ namespace TiP_pr
 
         public void SendMessage(String temp)
         {
+            MessageBox.Show(temp);
             NetworkStream stream = client.GetStream();
             byte[] message = Encoding.UTF8.GetBytes(temp);
             stream.Write(message, 0, message.Length);
@@ -97,7 +101,7 @@ namespace TiP_pr
             byte[] inStream = new byte[255];
             str.Read(inStream, 0, 255);
             string returndata = Encoding.UTF8.GetString(inStream);
-            //MessageBox.Show(returndata);
+            MessageBox.Show(returndata);
             return returndata.Substring(0, returndata.IndexOf('\0'));
         }       
     }

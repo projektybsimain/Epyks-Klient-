@@ -24,6 +24,16 @@ namespace TiP_pr
             InitializeComponent();
         }
 
+        static int FreeTcpPort()
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            //MessageBox.Show("" + port);
+            return port;
+        }
+
         static string sha256(string password)
         {
             SHA256Managed crypt = new SHA256Managed();
@@ -72,9 +82,9 @@ namespace TiP_pr
                 TcpClient client = new TcpClient();
                 IPEndPoint IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
                 client.Connect(IP_End);
-                Users user_registion = new Users(2, textBox3.Text, textBox2.Text, textBox4.Text, textBox5.Text, client);
+                Users user_registion = new Users(2, textBox3.Text, textBox2.Text, textBox4.Text, textBox5.Text, client, FreeTcpPort());
                 string temp = user_registion.ReceiveMessage();
-                if (temp == "AUTH;SUCCESS;")
+                if (temp == "AUTH;SUCCESS;!$")
                 {
                     this.Visible = false;
                     Zalogowany f = new Zalogowany(client, textBox3.Text);

@@ -24,6 +24,15 @@ namespace TiP_pr
             InitializeComponent();         
         }
 
+        static int FreeTcpPort()
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            //MessageBox.Show("" + port);
+            return port;
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -40,14 +49,14 @@ namespace TiP_pr
                 return;
             }
 
-            try
-            {
+            //try
+           // {
                 TcpClient client = new TcpClient();
                 IPEndPoint IP_End = new IPEndPoint(IPAddress.Parse("127.0.0.1"), serverPort);
                 client.Connect(IP_End);
-                Users user_login = new Users(1, textBox2.Text, textBox3.Text, client);
+                Users user_login = new Users(1, textBox2.Text, textBox3.Text, client, FreeTcpPort());
                 string temp = user_login.ReceiveMessage();
-                if ( temp == "AUTH;SUCCESS;")
+                if ( temp == "AUTH;SUCCESS;!$")
                 {
                     this.Visible = false;
                     Zalogowany f = new Zalogowany(client, textBox2.Text);
@@ -59,13 +68,13 @@ namespace TiP_pr
                     label1.Text = "Error: Incorrect login or password!";
                     return;
                 }
-            }
-            catch (Exception x)
+            //}
+            /*catch (Exception x)
             {
                 MessageBox.Show("Problem z logowaniem! (class Login)");
-                //throw x;
+                throw x;
                 return;
-            }
+            }*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -107,3 +116,9 @@ namespace TiP_pr
         }
     }
 }
+
+
+
+
+ 
+  
